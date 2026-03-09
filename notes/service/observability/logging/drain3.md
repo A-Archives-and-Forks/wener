@@ -8,3 +8,5 @@ title: Drain3
 - https://github.com/logpai/Drain3
   - Apache-2.0, Python
 - https://github.com/jaeyo/go-drain3
+- 参考
+  - https://clickhouse.com/blog/improve-compression-log-clustering

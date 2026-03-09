@@ -37,6 +37,11 @@ title: FAQ
 | Orchestration               | 编排（业务中对多个 Agent 或工具的流程调度）            |
 | Few-shot / Zero-shot        | 少样本 / 零样本（提示工程技巧）                        |
 
+## 499
+
+- ⚠️ 有些供应商会持续处理
+  - zhipu
+
 ## Anthropic Bedrock need thinking block for thinking
 
 ```
@@ -197,7 +202,7 @@ Gemini 限制
 
 ## Invalid `signature` in `thinking` block
 
-消息里的 singature 无效
+消息里的 singature 无效，判断请求是否正确
 
 # Moonshoot
 

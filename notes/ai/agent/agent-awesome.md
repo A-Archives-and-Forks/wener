@@ -56,6 +56,8 @@ tags:
   - https://github.com/smtg-ai/claude-squad
   - https://github.com/Pimzino/claude-code-spec-workflow
   - https://github.com/SuperClaude-Org/SuperClaude_Framework
+- Accessbility
+  - https://github.com/googleworkspace/cli
 - [microsoft/autogen](https://github.com/microsoft/autogen)
 - [DavidZWZ/Awesome-Deep-Research](https://github.com/DavidZWZ/Awesome-Deep-Research)
 

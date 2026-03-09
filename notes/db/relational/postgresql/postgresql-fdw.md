@@ -7,29 +7,6 @@ title: PostgreSQL FDW
 - [Foreign data wrappers](https://wiki.postgresql.org/wiki/Foreign_data_wrappers)
 - [adjust/clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)
 
-## mysql_fdw
-
-- [EnterpriseDB/mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw)
-
-```sql
-CREATE EXTENSION mysql_fdw;
-
-CREATE SERVER mysql_server
-FOREIGN DATA WRAPPER mysql_fdw
-OPTIONS (host '127.0.0.1', port '3306');
-
-CREATE USER MAPPING FOR postgres
-SERVER mysql_server
-OPTIONS (username 'foo', password 'bar');
-
-CREATE FOREIGN TABLE warehouse(
-     warehouse_id int,
-     warehouse_name text,
-     warehouse_created datetime)
-SERVER mysql_server
-     OPTIONS (dbname 'db', table_name 'warehouse');
-```
-
 ## postgres_fdw
 
 :::caution

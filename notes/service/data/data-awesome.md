@@ -315,3 +315,31 @@ curl -N -H "Accept: text/event-stream" https://hacker-news.firebaseio.com/v0/upd
 # {"path":"/","data":46411161}
 curl -N -H "Accept: text/event-stream" https://hacker-news.firebaseio.com/v0/maxitem.json
 ```
+
+## gs://
+
+```markdown
+| 描述                    | URL                                                                          |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| 标志图片                | `gs://vis-demo-data/logodetec/google_logo.jpg`                               |
+| 文本图片 (OCR测试)      | `gs://cloud-samples-data/vision/ocr/sign.jpg`                                |
+| 花卉数据集 (CSV)        | `gs://cloud-samples-data/ai-platform/flowers/flowers.csv`                    |
+| 花卉单张示例            | `gs://cloud-samples-data/ai-platform/flowers/daisy/100080546_50a45f3d71.jpg` |
+| 手写数字 (MNIST)        | `gs://cloud-samples-data/vision/automl_classification/mnist/train-0.jpg`     |
+| Landsat 卫星数据        | `gs://gcp-public-data-landsat/`                                              |
+| Landsat 路径示例        | `gs://gcp-public-data-landsat/LC08/01/044/034/`                              |
+| Open Images (COCO 镜像) | `gs://images.cocodataset.org/`                                               |
+| Google Cloud 官方示例   | `gs://cloud-samples-data/`                                                   |
+| 卫星影像 (Sentinel-2)   | `gs://gcp-public-data-sentinel-2/`                                           |
+| 基因组数据              | `gs://genomics-public-data/`                                                 |
+```
+
+```bash
+gcloud storage ls -L gs://cloud-samples-data/
+
+# 尝试下载到本地
+gcloud storage cp gs://cloud-samples-data/vision/demo-img.jpg ./test.jpg
+```
+
+- gs://cloud-samples-data/vision/demo-img.jpg
+- https://storage.googleapis.com/cloud-samples-data/vision/demo-img.jpg

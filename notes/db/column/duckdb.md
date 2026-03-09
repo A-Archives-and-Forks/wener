@@ -16,6 +16,7 @@ title: DuckDB
 
 :::caution
 
+- musl binary [#12523](https://github.com/duckdb/duckdb/discussions/12523)
 - external table [#14422](https://github.com/duckdb/duckdb/discussions/14422)
 
 :::

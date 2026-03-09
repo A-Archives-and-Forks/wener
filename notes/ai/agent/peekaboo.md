@@ -34,14 +34,30 @@ peekaboo image --mode screen --retina --path ~/Desktop/screen.png
 peekaboo see --app Safari --json-output | jq -r '.data.snapshot_id' | read SNAPSHOT
 peekaboo click --on "Reload this page" --snapshot "$SNAPSHOT"
 
-# 完全基于自然语言的一句话自动操作流
-peekaboo "Open Notes and create a TODO list with three items"
+peekaboo agent "看看我飞书现在的 chat"
 
 # ~/.peekaboo/config.json
 peekaboo config init
 
 # openai|anthropic|grok|xai|gemini
 peekaboo config add openai API_KEY
+
+# 从 env 读取 {env:MY_API_KEY}
+# 可以在 ~/.peekaboo/credentials 设置 env
+peekaboo config add-provider local \
+  --type openai \
+  --name "Local Provider" \
+  --base-url "http://127.0.0.1:31235/v1" \
+  --api-key "x"
+
+peekaboo config test-provider local
+
+# 检查权限
+# https://github.com/steipete/Peekaboo/blob/main/docs/permissions.md
+peekaboo permissions
+peekaboo permissions grant
+
+open "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture"
 ```
 
 - PEEKABOO_AI_PROVIDERS
@@ -60,3 +76,17 @@ peekaboo config add openai API_KEY
   }
 }
 ```
+
+# FAQ
+
+## 权限
+
+- cli 需要 terminal 有权限
+
+```bash
+# cli 触发截屏权限, 可以给 terminal 权限, 例如 iTerm2, Ghostty
+/usr/sbin/screencapture
+```
+
+- 特殊情况使用 bridge
+- 下载 app https://github.com/steipete/Peekaboo/releases 才能赋予权限

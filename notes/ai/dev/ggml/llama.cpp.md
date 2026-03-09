@@ -380,6 +380,21 @@ nvidia-smi nvlink -s
 - llama 默认开启了 --fit
 - mmproj 可能推测会有问题
 
+## autoparser
+
+- 自适应 chat_template
+- 动态生成 PEG，不依赖手写正则
+- 差分对比，自动提取标记
+  - 例如 两次渲染，带上 tool 和不带，然后对比提取差异
+- 模式识别/分析
+  - 思考
+  - 内容
+  - 工具调用
+    - json
+    - tag with json - XML+JSON 参数
+    - tag with tagged - XML
+- minijinjia
+
 # FAQ
 
 ## speculative decoding is not supported by multimodal, it will be disabled

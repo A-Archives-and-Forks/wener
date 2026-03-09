@@ -12,3 +12,10 @@ tags:
   - AlpineLinux
 - MySQL 5.5.5 fork
 - https://hub.docker.com/_/mariadb
+
+# FAQ
+
+## failed to connect to MySQL: TLS/SSL error: SSL is required, but the server does not support it
+
+- 似乎无法调整
+- https://github.com/EnterpriseDB/mysql_fdw/issues/183

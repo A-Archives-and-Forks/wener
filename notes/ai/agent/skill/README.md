@@ -27,6 +27,9 @@ tags:
     - `npx skills add <owner/repo>`
   - https://context7.com/?tab=skills
     - `npx ctx7 skills search pdf`
+- index
+  - https://github.com/openai/skills
+  - https://github.com/openclaw/openclaw/tree/main/skills
 - 参考
   - [What are skills](https://support.claude.com/en/articles/12512176-what-are-skills)
 

@@ -5,6 +5,20 @@ tags:
 
 # Agent FAQ
 
+## skip permissions
+
+```bash
+claude --dangerously-skip-permissions
+```
+
+- claude
+  - --allow-dangerously-skip-permissions
+    - --permission-mode bypassPermissions
+    - Shift+Tab 可以切换
+  - --dangerously-skip-permissions
+- gemini
+  - https://github.com/google-gemini/gemini-cli/issues/4340
+
 ## Notification
 
 - 任务完成后通知

@@ -9,3 +9,5 @@ title: Gemini
     - $299/year
   - https://codeassist.google/
   - https://gemini.google/subscriptions/
+- 参考
+  - https://developers.google.com/program/my-benefits?hl=zh-cn
