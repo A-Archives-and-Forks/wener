@@ -60,6 +60,8 @@ tags:
   - https://github.com/googleworkspace/cli
 - [microsoft/autogen](https://github.com/microsoft/autogen)
 - [DavidZWZ/Awesome-Deep-Research](https://github.com/DavidZWZ/Awesome-Deep-Research)
+- learning
+  - https://openai.com/index/unrolling-the-codex-agent-loop/
 
 ## configuration
 
@@ -68,9 +70,14 @@ tags:
 
 ## Browser
 
-- chrome-devtools
+- chrome-devtools mcp
+  - 走协议
 - agent-browser
   - 依赖 playwright
+  - cli
+- chrome-mcp
+  - 使用 extension 的方式
+- [theredsix/agent-browser-protocol](https://github.com/theredsix/agent-browser-protocol)
 
 ```bash
 npm add -g agent-browser

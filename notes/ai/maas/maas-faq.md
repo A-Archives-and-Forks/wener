@@ -37,6 +37,19 @@ title: FAQ
 | Orchestration               | 编排（业务中对多个 Agent 或工具的流程调度）            |
 | Few-shot / Zero-shot        | 少样本 / 零样本（提示工程技巧）                        |
 
+## finish_reason
+
+| finish_reason                  | 说明                                 |
+| :----------------------------- | :----------------------------------- |
+| `stop`                         | 模型自然结束生成（遇到停止符）       |
+| `length`                       | 达到最大 Token 限制或上下文窗口限制  |
+| `tool_calls` / `function_call` | 模型决定调用外部工具或函数           |
+| `content_filter`               | 内容因触发安全或合规策略被过滤       |
+| `end_turn`                     | 模型表示当前轮次结束（如 Anthropic） |
+| `error`                        | 生成过程中发生错误                   |
+| `unknown`                      | 未知原因                             |
+| refuse                         |
+
 ## 499
 
 - ⚠️ 有些供应商会持续处理

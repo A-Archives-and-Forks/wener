@@ -6,7 +6,8 @@ title: Anthropic
 
 | date       | flag                                       | for                                 | provider | fields                                                                                                                                     |
 | ---------- | ------------------------------------------ | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| 2024-07-31 | [prompt-caching-2024-07-31]                | Prompt caching breakpoints          | A,B,V,F  | `*.cache_control`, `usage.cache_creation_input_tokens`, `usage.cache_read_input_tokens`                                                    |
+| 2024-07-15 | ~~`max-tokens-3-5-sonnet-2024-07-15`~~     | 8K output for Sonnet 3.5 ⚰️         | A        | `max_tokens` (up to 8192)                                                                                                                  |
+| 2024-07-31 | ~~[prompt-caching-2024-07-31]~~            | Prompt caching breakpoints **GA**   | A,B,V,F  | `*.cache_control`, `usage.cache_creation_input_tokens`, `usage.cache_read_input_tokens`                                                    |
 | 2024-09-24 | `message-batches-2024-09-24`               | Batch message processing            | A        | `requests[*].custom_id`, `requests[*].params`, `processing_status`, `request_counts.*`, `results_url`                                      |
 | 2024-09-25 | `pdfs-2024-09-25`                          | PDF document support                | A,B,V,F  | `messages[*].content[*].source.media_type`, `messages[*].content[*].source.data`, `messages[*].content[*].source.type`                     |
 | 2024-10-22 | `computer-use-2024-10-22`                  | Computer use tools (v1)             | A,B,V,F  | `tools[*].type:"computer_20241022"`, `tools[*].display_width_px`, `tools[*].display_height_px`, `tools[*].display_number`                  |
@@ -14,18 +15,26 @@ title: Anthropic
 | 2025-01-24 | `computer-use-2025-01-24`                  | Computer use tools (v2)             | A,B,V,F  | `tools[*].type:"computer_20250124"`, `tools[*].display_width_px`, `tools[*].display_height_px`                                             |
 | 2025-02-19 | `token-efficient-tools-2025-02-19`         | Reduce tool definition tokens       | A,B,V,F  | `tools[*].defer_loading`, `tools[*].strict`                                                                                                |
 | 2025-02-19 | `output-128k-2025-02-19`                   | Extend max output to 128k           | A,B,V,F  | `max_tokens` (up to 128000)                                                                                                                |
-| 2025-04-04 | `mcp-client-2025-04-04`                    | MCP server integration (v1)         | A,B,V,F  | `mcp_servers[*].url`, `mcp_servers[*].tool_configuration`, `content[*].type:"mcp_tool_use"`, `content[*].type:"mcp_tool_result"`           |
-| 2025-04-11 | `extended-cache-ttl-2025-04-11`            | Extended cache TTL to 1h            | A,B,V,F  | `*.cache_control.ttl:"1h"`                                                                                                                 |
+| 2025-04-04 | ~~`mcp-client-2025-04-04`~~                | MCP server integration (v1) → v2    | A,B,V,F  | `mcp_servers[*].url`, `mcp_servers[*].tool_configuration`, `content[*].type:"mcp_tool_use"`, `content[*].type:"mcp_tool_result"`           |
+| 2025-04-11 | ~~`extended-cache-ttl-2025-04-11`~~        | Extended cache TTL to 1h **GA**     | A,B,V,F  | `*.cache_control.ttl:"1h"`                                                                                                                 |
 | 2025-04-14 | `files-api-2025-04-14`                     | File upload/download API            | A,B,V,F  | `source.type:"file"`, `source.file_id`                                                                                                     |
 | 2025-05-14 | `dev-full-thinking-2025-05-14`             | Full thinking content (dev)         | A,B,V,F  | `thinking.type:"enabled"`, `thinking.budget_tokens`, `content[*].type:"thinking"`                                                          |
+| 2025-05-14 | ~~`fine-grained-tool-streaming-2025-05-14`~~ | Fine-grained tool streaming **GA** | A,B,V,F  | `output_format`, tool use 参数逐步流式                                                                                                      |
 | 2025-05-14 | `interleaved-thinking-2025-05-14`          | Thinking interleaved with tool use  | A,B,V,F  | `content[*].type:"thinking"` interleaved with `content[*].type:"tool_use"`                                                                 |
 | 2025-05-22 | `code-execution-2025-05-22`                | Code execution sandbox              | A,B,V,F  | `tools[*].type:"code_execution_20250522"`, `tools[*].allowed_callers`, `content[*].caller`, `content[*].type:"code_execution_tool_result"` |
+| 2025-06-09 | ~~`search-results-2025-06-09`~~            | Search result content blocks **GA** | A,V      | `content[*].type:"search_result"`, RAG citations                                                                                           |
 | 2025-06-27 | [context-management-2025-06-27]            | Auto context management             | A,B,V,F  | `context_management.edits[*]`, `context_management.edits[*].trigger`, `context_management.edits[*].keep`                                   |
 | 2025-08-07 | [context-1m-2025-08-07]                    | 1M token context window             | A,B,V,F  | `max_tokens` (model context extended to 1M)                                                                                                |
+| 2025-08-25 | `code-execution-2025-08-25`                | Code execution (updated, w/ skills) | A,B,V,F  | `tools[*].type:"code_execution_20250825"`, `tools[*].allowed_callers`                                                                      |
 | 2025-08-26 | [model-context-window-exceeded-2025-08-26] | Context window exceeded stop reason | A,B,V,F  | `stop_reason:"model_context_window_exceeded"`                                                                                              |
 | 2025-10-02 | [skills-2025-10-02]                        | Skills/container support            | A,B,V,F  | `container.skills[*].id`, `container.skills[*].type`, `container.id`                                                                       |
+| 2025-10-19 | `tool-search-tool-2025-10-19`              | Tool search (Bedrock/Vertex)        | B,V      | `tools[*].type:"tool_search_tool_*"`, Bedrock 专用                                                                                         |
+| 2025-10-29 | [tool-examples-2025-10-29]                 | Tool use examples                   | B,V      | `tools[*].input_examples`, Opus 4.5+                                                                                                       |
+| 2025-11-13 | `structured-outputs-2025-11-13`            | Structured JSON outputs             | A,B,V,F  | `output_config.format`, `tools[*].input_schema.strict`, JSON schema conformance                                                            |
+| 2025-11-20 | [advanced-tool-use-2025-11-20]             | Tool search/deferred loading        | A,F      | `tools[*].defer_loading`, `server_tool_use`, `tool_search_tool_result`, `tool_reference`                                                   |
 | 2025-11-20 | [mcp-client-2025-11-20]                    | MCP server integration (v2)         | A,B,V,F  | `mcp_servers[*].url`, `mcp_servers[*].tool_configuration`                                                                                  |
 | 2026-02-01 | [fast-mode-2026-02-01]                     | Fast inference mode                 | A        | `speed:"fast"`                                                                                                                             |
+| 2026-02-12 | [redact-thinking-2026-02-12]               | Redact thinking content             | A,B,V,F  | `content[*].type:"redacted_thinking"`, `content[*].data`                                                                                   |
 
 > A=Anthropic API, B=Bedrock, V=Vertex AI, F=Foundry
 
@@ -42,6 +51,7 @@ title: Anthropic
 - https://platform.claude.com/docs/en/api/beta#anthropic_beta
 
 [fast-mode-2026-02-01]: #fast-mode-2026-02-01
+[redact-thinking-2026-02-12]: #redact-thinking-2026-02-12
 
 ```
 anthropic-beta: A,B
@@ -316,6 +326,68 @@ API 返回 stop_reason: "tool_use"，你处理 tool_result 回传
 - Opus 4.5+
 - Vertex AI, Amazon Bedrock
 - input_examples 字段
+
+## redact-thinking-2026-02-12
+
+将 `thinking` 明文推理块替换为加密的 `redacted_thinking` 块，隐藏 chain-of-thought 内容。
+
+- 响应中 `thinking` 块变为 `{"type": "redacted_thinking", "data": "OPAQUE_BASE64..."}`
+- `data` 是加密/不透明的，无法阅读推理过程
+- 计费仍按完整 thinking tokens 计算，不是 redacted 后的大小
+- 多轮对话必须原样回传 `redacted_thinking` 块，修改/截断/删除 → `400 Bad Request`
+- 跨平台兼容：Anthropic API / Bedrock / Vertex AI 之间可互传
+- **注意**：即使不带此 header，当 Claude 推理触发安全护栏时也可能自动返回 `redacted_thinking` 块
+
+```bash
+curl https://api.anthropic.com/v1/messages \
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: redact-thinking-2026-02-12" \
+  -H "content-type: application/json" \
+  -d '{
+    "model": "claude-sonnet-4-6",
+    "max_tokens": 8096,
+    "thinking": {"type": "enabled", "budget_tokens": 5000},
+    "messages": [{"role": "user", "content": "分析量子计算的前景"}]
+  }'
+```
+
+**响应（redacted）：**
+
+```json
+{
+  "content": [
+    {"type": "redacted_thinking", "data": "EmwKA...长base64..."},
+    {"type": "text", "text": "量子计算的前景可以从以下几个方面分析..."}
+  ]
+}
+```
+
+**多轮回传：**
+
+```json
+{
+  "messages": [
+    {"role": "user", "content": "分析量子计算的前景"},
+    {"role": "assistant", "content": [
+      {"type": "redacted_thinking", "data": "EmwKA...原样回传..."},
+      {"type": "text", "text": "量子计算的前景可以从以下几个方面分析..."}
+    ]},
+    {"role": "user", "content": "继续深入第一点"}
+  ]
+}
+```
+
+**对比：不带 header 时的正常 thinking 响应：**
+
+```json
+{
+  "content": [
+    {"type": "thinking", "thinking": "让我从技术成熟度、应用场景...", "signature": "abc123..."},
+    {"type": "text", "text": "量子计算的前景可以从以下几个方面分析..."}
+  ]
+}
+```
 
 ## fast-mode-2026-02-01
 

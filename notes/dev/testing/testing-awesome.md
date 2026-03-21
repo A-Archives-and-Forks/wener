@@ -29,6 +29,9 @@ tags:
   - CTRF - Common Test Report Format
     - Unified JSON Test Report With Seamless Developer Tool Integration
     - https://ctrf.io/
+- [mobile-dev-inc/Maestro](https://github.com/mobile-dev-inc/Maestro)
+  - Apache-2.0, Kotlin
+  - Painless E2E Automation for Mobile and Web
 - Examples
   - [fastify/benchmarks](https://github.com/fastify/benchmarks)
 

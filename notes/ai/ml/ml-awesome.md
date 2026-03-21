@@ -170,6 +170,8 @@ tags:
     - https://segment-anything.com
   - MobileSAM
   - FastSAM
+  - [yangchris11/samurai](https://github.com/yangchris11/samurai)
+    - SAMURAI: Adapting Segment Anything Model for Zero-Shot Visual Tracking with Motion-Aware Memory
 - Visual recognition/object detection/segmentation
   - [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2)
   - [open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection)

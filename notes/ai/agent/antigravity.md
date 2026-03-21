@@ -11,6 +11,11 @@ title: Antigravity
 - agent.md
 - .antigravity/rules.md
 - ~/.gemini/antigravity/mcp_config.json
+- 参考
+  - Credit  https://one.google.com/ai/activity
+    - Pro 1000/m
+    - Ultra 25k/m
+    - 1$/100
 
 ## antigravity-claude-proxy
 

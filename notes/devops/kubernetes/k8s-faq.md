@@ -756,3 +756,11 @@ kubectl get pods --all-namespaces | grep Evicted
 
 kubectl get pods --all-namespaces | grep Evicted | awk '{print $2, "-n", $1}' | xargs -n3 kubectl delete pod
 ```
+
+
+## log rotate
+
+```yaml
+containerLogMaxSize: "20Mi"
+containerLogMaxFiles: 10
+```

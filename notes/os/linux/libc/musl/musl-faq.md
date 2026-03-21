@@ -139,3 +139,28 @@ apk add libstdc++ libgcc
 - fcntl64
 - https://clickhouse.com/codebrowser/ClickHouse/base/glibc-compatibility/musl/fcntl.c.html
 - https://lore.kernel.org/all/20231014153924.54987-1-raj.khem@gmail.com/T/
+
+## posix_getdents: symbol not found
+
+- 可以通过 preload fix
+
+```bash
+apk add gcompat
+
+cat << EOF > posix_getdents_fix.c
+#define _GNU_SOURCE
+#include <dirent.h>
+#include <sys/syscall.h>
+#include <unistd.h>
+#include <errno.h>
+#include <sys/types.h>
+
+ssize_t posix_getdents(int fd, void *buf, size_t count) {
+	return syscall(SYS_getdents64, fd, buf, count);
+}
+EOF
+gcc -shared -fPIC -O2 -o posix_getdents_fix.so posix_getdents_fix.c
+
+# 增加 preload 来处理
+LD_PRELOAD="/lib/libgcompat.so.0:/home/username/posix_getdents_fix.so" xyz
+```

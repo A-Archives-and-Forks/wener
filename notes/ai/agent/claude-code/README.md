@@ -30,6 +30,7 @@ tags: [Claude, AI, Code, Agent]
   - 可以临时 deny 一些 mcp
 - Add --session-name and /session-name for custom session identification https://github.com/anthropics/claude-code/issues/2112
 - 官方正在 Work 把 CC 做到 Web 和 移动端
+- 当 max_tokens > 21,333 时，SDK 强制要求使用 streaming 模式
 
 :::
 

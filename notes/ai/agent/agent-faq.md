@@ -9,6 +9,9 @@ tags:
 
 ```bash
 claude --dangerously-skip-permissions
+
+codex --sandbox danger-full-access --ask-for-approval never
+codex --dangerously-bypass-approvals-and-sandbox
 ```
 
 - claude
