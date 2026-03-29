@@ -4,6 +4,9 @@ title: magefile
 
 # mega
 
+- [magefile/mage](https://github.com/magefile/mage)
+  - Apache-2.0, Go
+  - Make/rake-like dev tool using Go
 - 优势
   - 有 Makefile 类似的语义
     - Target、依赖、文件变化检测
@@ -15,6 +18,7 @@ title: magefile
 - 劣势
   - 非静态编译则依赖 Go
   - 静态需要交叉编译多平台 - 其他的 task runner 由官方提供编译好的
+  - 多半需要引入 mage 依赖
 - 场景
   - 例如 定义一个 Yaml 表示要做的 Task，通过 Go 解析然后执行会很容易
   - 复杂的自定义任务逻辑
@@ -23,9 +27,6 @@ title: magefile
   - 验证测试 Go 代码
   - 自定义命令工具
     - 类似于 cobra - 但可添加 go 自定义
-- 注意
-  - Target 不支持 flag
-    - [magefile/mage#24](https://github.com/magefile/mage/issues/24)
 - 参考
   - [ENVIRONMENT VARIABLES](https://magefile.org/environment/)
 

@@ -50,6 +50,12 @@ title: FAQ
 | `unknown`                      | 未知原因                             |
 | refuse                         |
 
+## non stream timeout
+
+- 一般 idle timeout 默认 10m
+  - anthropic
+  - openai
+
 ## 499
 
 - ⚠️ 有些供应商会持续处理
