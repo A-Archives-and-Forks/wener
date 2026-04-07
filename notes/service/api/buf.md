@@ -58,6 +58,25 @@ docker run \
   bufbuild/buf build
 
 buf lint --error-format=config-ignore-yaml
+
+# Testing
+# 默认开启了 --reflect, 依赖 http2, 需要 bidi-stream
+# --reflect-protocol grpc-v1|grpc-v1alpha - 默认尝试所有, 对应 grpc.reflection.v1.ServerReflection, grpc.reflection.v1alpha.ServerReflection
+# --protocol grpc|grpcweb
+# h2c
+buf curl --schema proto --protocol grpc http://localhost:8080/foo.bar.v1.FooService/Bar --data '{"name":"wener"}' --http2-prior-knowledge
+
+# Client Streaming
+buf curl --data @- --header @- --protocol grpcweb \
+  https://demo.connectrpc.com/connectrpc.eliza.v1.ElizaService/Converse \
+  << EOM
+Custom-Header-1: foo-bar-baz
+Authorization: token jas8374hgnkvje9wpkerebncjqol4
+
+{"sentence": "Hi, doc. I feel hungry."}
+{"sentence": "What is the answer to life, the universe, and everything?"}
+{"sentence": "If you were a fish, what of fish would you be?."}
+EOM
 ```
 
 ```yaml

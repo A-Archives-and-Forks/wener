@@ -50,6 +50,8 @@ local.mk
 *.pem
 .mcp.json
 .claude/
+.agents/
+.agent/
 .gemini/
 AGENTS.md
 /*.jpg

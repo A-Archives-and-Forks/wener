@@ -84,7 +84,13 @@ npm add -g agent-browser
 npx skills add vercel-labs/agent-browser
 ```
 
-## IM as UI
+## Claw
 
+- [openclaw](https://github.com/openclaw/openclaw)
+- [picoclaw](./picoclaw.md)
 - claw like
-- https://github.com/openclaw/openclaw
+- IM as UI
+- 特点
+  - 不关心过程，只关心结果
+  - 对话额外最后的总结性输出，而不是包含中间思考过程、工具调用 这样的输出
+  - 更像是一个 Agent/助手，而不是一个 Coding Assistant

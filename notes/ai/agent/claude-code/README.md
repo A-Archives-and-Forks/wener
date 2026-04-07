@@ -70,7 +70,7 @@ claude config list
 
 - ~/.claude.json
 
-:::tips API Key 最小配置
+:::tip API Key 最小配置
 
 ```json title="~/.claude/settings.json"
 {

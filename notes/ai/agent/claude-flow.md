@@ -5,8 +5,9 @@ tags: [ai, agent, mcp, claude]
 
 # Claude Flow
 
-- [ruvnet/claude-flow](https://github.com/ruvnet/claude-flow)
+- [ruvnet/ruflo](https://github.com/ruvnet/ruflo)
   - MIT, TypeScript
+  - claude-flow -> ruflo
   - **定位**: Enterprise AI Orchestration Platform for Claude Code.
   - **核心**: 基于 MCP (Model Context Protocol) 的 Headless 代理编排工具。
 - Claude Code 2.1.32 有了内置的实验性 TeamMate

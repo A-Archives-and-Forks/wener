@@ -11,7 +11,7 @@ tags:
 - [Comparison of statistical packages (Wikipedia)](https://en.wikipedia.org/wiki/Comparison_of_statistical_packages)
 - [Best Free and Open Source Software for Statistical Analysis](https://blog.cometdocs.com/the-best-free-and-open-source-software-for-statistical-analysis)
 
-### R-squared ($R^2$, 决定系数)
+## R-squared ($R^2$, 决定系数)
 
 $R^2$ 是统计学和机器学习中用于评估回归模型**拟合优度（Goodness of Fit）**的核心指标之一。它反映了在因变量的总体方差中，能由自变量（即你的回归模型）解释的比例。
 
@@ -32,3 +32,17 @@ $$ R^2 = 1 - \frac{SS*{res}}{SS*{tot}} $$
 
 **一句话总结：**
 $R^2$ 告诉你模型在多大程度上把混乱的数据“解释”清楚了，分数越高，模型拟合得越好！
+
+## 普通线性回归
+
+- (Ordinary Least Squares, OLS)
+
+## 加权线性回归 {#weighted-linear-regression}
+
+- 加权线性回归 - Weighted linear regression - WLR
+
+$$ \text{Cost} = \sum\_{i=1}^{n} w_i \cdot (y_i - \hat{y}\_i)^2 $$
+
+- 处理异方差性 (Heteroscedasticity)
+- 降低异常值 (Outliers) 的影响
+- 数据聚合时的权重

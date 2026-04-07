@@ -63,6 +63,17 @@ killall Dock # restart dock
 - coreduetd
   - Handoff
 
+## 自动化
+
+- Mac TCC
+  - Transparency, Consent, Control
+  - 系统级：/Library/Application Support/com.apple.TCC/TCC.db
+  - 用户级：~/Library/Application Support/com.apple.TCC/TCC.db
+  - tccutil
+- 截图(ScreenCaptureKit)
+- 识别(Accessibility API)
+- 操作(CGEvent)
+
 ## path_helper
 
 - /etc/paths
