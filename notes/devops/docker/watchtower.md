@@ -4,7 +4,9 @@ title: Watchtower
 
 # Watchtower
 
-- [containrrr/watchtower](https://github.com/containrrr/watchtower)
+- [nicholas-fedor/watchtower](https://github.com/nicholas-fedor/watchtower)
+  - Apache-2.0, Go
+  - archived [containrrr/watchtower](https://github.com/containrrr/watchtower)
 - 如果 image 有更新自动更新
 - 支持通知
   - email
