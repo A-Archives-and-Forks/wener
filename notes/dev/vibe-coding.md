@@ -34,6 +34,50 @@ tags:
 - 只有在完成上述步骤后再启动编码过程
 - OODA - Observe Orient Decide Act - 观察 认知 决策 执行
 
+## 如何增加并行 {#how-to-increase-parallel}
+
+1. use worktree
+2. use tmux
+3. use session name
+
+- the /rename command
+
+**worktree**
+
+- ~/gits/foo
+  - main repo
+- ~/gits/foo-1
+  - workrtree
+  - symlink CLAUDE.md, .mcp.json, .claude, .agents, local
+- 可快速增加并行程度，不丢失上下文
+- 通过组织目录可 share 上下文
+
+**tmux**
+
+```
+prefer tmux to run dev server, use title to find the target pane like `xyz-dev`
+```
+
+with [tmux-session-manager](https://github.com/wenerme/ai/tree/main/skills/tmux-session-manager) skill
+
+## Share Context
+
+- 让模型知道你知道的
+- 让你知道模型知道的
+
+我的习惯性结构
+
+```
+.agents/
+  docs/       # 让模型持续更新跟踪相关知识上下文
+  skills/     # 基础技能
+local/
+  docs/       # 我应该需要知道的
+  YYYY-MM-DD/ # 模型应该知道的，每次的上下文
+```
+
+- 知识技能梳理 https://github.com/wenerme/ai
+
 ## Best Practice
 
 - Simplicity is always the best
