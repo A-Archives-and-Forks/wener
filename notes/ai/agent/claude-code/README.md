@@ -189,10 +189,10 @@ claude config list
 | ANTHROPIC_BASE_URL                       | 自定义 API 端点 URL                                                                                                 |
 | ANTHROPIC_CUSTOM_HEADERS                 | 添加到请求的自定义头（Name: Value 格式）                                                                            |
 | ANTHROPIC_MODEL                          | 要使用的自定义模型名称（如 claude-sonnet-4-20250514）                                                               |
-| ANTHROPIC_DEFAULT_HAIKU_MODEL            |
-| ANTHROPIC_DEFAULT_OPUS_MODEL             |
-| ANTHROPIC_DEFAULT_SONNET_MODEL           |
-| CLAUDE_CODE_SUBAGENT_MODEL               |
+| ANTHROPIC_DEFAULT_HAIKU_MODEL            | 默认的 Haiku 模型名称                                                                                               |
+| ANTHROPIC_DEFAULT_OPUS_MODEL             | 默认的 Opus 模型名称                                                                                                |
+| ANTHROPIC_DEFAULT_SONNET_MODEL           | 默认的 Sonnet 模型名称                                                                                              |
+| CLAUDE_CODE_SUBAGENT_MODEL               | 子代理使用的默认模型                                                                                                |
 | ANTHROPIC_SMALL_FAST_MODEL               | Haiku 类模型名称，用于后台任务                                                                                      |
 | ANTHROPIC_SMALL_FAST_MODEL_AWS_REGION    | 使用 Bedrock 时小型快速模型的 AWS 区域覆盖                                                                          |
 | ANTHROPIC_BEDROCK_BASE_URL               | AWS Bedrock 端点 URL                                                                                                |
@@ -203,7 +203,9 @@ claude config list
 | BASH_MAX_TIMEOUT_MS                      | 模型可设置的长时间运行 bash 命令的最大超时时间（毫秒）                                                              |
 | BASH_MAX_OUTPUT_LENGTH                   | bash 输出在被中间截断前的最大字符数                                                                                 |
 | CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR | 每次 Bash 命令后返回原始工作目录                                                                                    |
+| CLAUDE_AUTOCOMPACT_PCT_OVERRIDE           | 设置触发自动压缩的上下文容量百分比（1-100，默认约为 95）                                                            |
 | CLAUDE_CODE_API_KEY_HELPER_TTL_MS        | 凭据刷新间隔（毫秒），使用 apiKeyHelper 时                                                                          |
+| CLAUDE_CODE_AUTO_COMPACT_WINDOW           | 手动设置用于自动压缩计算的上下文容量（Token 数，例如 500000）                                                       |
 | CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC | 禁用非必要流量（等同于设置 DISABLE_AUTOUPDATER、DISABLE_BUG_COMMAND、DISABLE_ERROR_REPORTING 和 DISABLE_TELEMETRY） |
 | CLAUDE_CODE_DISABLE_TERMINAL_TITLE       | 设为 1 可禁用基于对话上下文的自动终端标题更新                                                                       |
 | CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL        | 跳过 IDE 扩展的自动安装                                                                                             |
@@ -212,7 +214,10 @@ claude config list
 | CLAUDE_CODE_SKIP_VERTEX_AUTH             | 跳过 Vertex 的 Google 认证（如使用 LLM 网关时）                                                                     |
 | CLAUDE_CODE_USE_BEDROCK                  | 使用 Bedrock                                                                                                        |
 | CLAUDE_CODE_USE_VERTEX                   | 使用 Vertex                                                                                                         |
+| CLAUDE_CODE_DISABLE_1M_CONTEXT            | 禁用 1M 上下文窗口支持                                                                                              |
 | DISABLE_AUTOUPDATER                      | 设为 1 可禁用自动更新，优先于 autoUpdates 配置设置                                                                  |
+| DISABLE_AUTO_COMPACT                      | 禁用接近上下文限制时的自动压缩（手动 /compact 仍可用）                                                              |
+| DISABLE_COMPACT                           | 完全禁用自动和手动压缩功能                                                                                          |
 | DISABLE_BUG_COMMAND                      | 设为 1 可禁用 /bug 命令                                                                                             |
 | DISABLE_COST_WARNINGS                    | 设为 1 可禁用成本警告消息                                                                                           |
 | DISABLE_ERROR_REPORTING                  | 设为 1 可选择退出 Sentry 错误报告                                                                                   |
@@ -231,6 +236,18 @@ claude config list
 | VERTEX_REGION_CLAUDE_4_0_OPUS            | 使用 Vertex AI 时 Claude 4.0 Opus 的区域覆盖                                                                        |
 | VERTEX_REGION_CLAUDE_4_0_SONNET          | 使用 Vertex AI 时 Claude 4.0 Sonnet 的区域覆盖                                                                      |
 | VERTEX_REGION_CLAUDE_4_1_OPUS            | 使用 Vertex AI 时 Claude 4.1 Opus 的区域覆盖                                                                        |
+| CLAUDE_CONFIG_DIR                        | 覆盖配置目录（默认 ~/.claude），可用于运行多个账号                                                                  |
+| API_TIMEOUT_MS                           | API 请求超时时间（毫秒，默认 600000）                                                                               |
+| CLAUDE_CODE_SHELL                        | 覆盖自动 Shell 检测，指定偏好的 Shell（如 bash, zsh）                                                               |
+| CLAUDE_CODE_SHELL_PREFIX                 | 用于包装所有 bash 命令的前缀（例如用于审计日志）                                                                    |
+| CLAUDE_ENV_FILE                          | 每条 Bash 命令执行前加载的 Shell 脚本路径（用于持久化虚拟环境等）                                                   |
+| CLAUDE_CODE_SIMPLE                       | 极简模式运行，等同于 --bare 标志，禁用大部分自动发现功能                                                            |
+| CLAUDE_CODE_DISABLE_BACKGROUND_TASKS     | 禁用所有后台任务功能                                                                                                |
+| CLAUDE_CODE_SUBPROCESS_ENV_SCRUB         | 设置为 1 可从子进程中清除凭据（减少提示词注入风险）                                                                 |
+| ANTHROPIC_BETAS                          | 逗号分隔的附加 anthropic-beta 头部值                                                                                |
+| CLAUDE_CODE_ACCESSIBILITY                | 设置为 1 以兼容屏幕阅读器，禁用反转文本光标                                                                         |
+| CLAUDE_CODE_DISABLE_FILE_CHECKPOINTING   | 禁用文件检查点，禁用后无法使用 /rewind 恢复更改                                                                     |
+| CLAUDE_CODE_DEBUG_LOGS_DIR               | 完整的调试日志文件路径（默认为 ~/.claude/debug/<session-id>.txt）                                                   |
 
 - MAX_THINKING_TOKENS
   - 499
@@ -249,6 +266,9 @@ export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 export DISABLE_TELEMETRY=1
 export DISABLE_ERROR_REPORTING=1
 export DISABLE_BUG_COMMAND=1
+
+# GPT
+ANTHROPIC_SMALL_FAST_MODEL=gpt-5.4-mini ANTHROPIC_MODEL=gpt-5.4
 ```
 
 - Qwen3-Coder-480B-A35B

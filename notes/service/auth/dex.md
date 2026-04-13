@@ -1,10 +1,10 @@
 ---
-id: dex
+title: Dex
 ---
 
 # Dex
 
-- 是什么？
+- [dexidp/dex](https://github.com/dexidp/dex)
   - OIDC, OAuth2 Provider - IdP
   - 支持插件式的 Connector
 - 存储

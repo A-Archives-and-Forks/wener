@@ -41,6 +41,8 @@ npm i -g opencode-ai@latest
 # Homebrew (macOS/Linux)
 brew install opencode
 brew install --cask opencode-desktop
+# 更新更快
+brew install anomalyco/tap/opencode
 # Scoop (Windows)
 scoop bucket add extras
 scoop install extras/opencode

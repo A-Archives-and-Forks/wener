@@ -104,6 +104,10 @@ tags:
   - [BerriAI/litellm](https://github.com/BerriAI/litellm)
     - MIT, Python
     - 将各种 LLM 适配为 OpenAI 的 API 格式
+  - [looplj/axonhub](https://github.com/looplj/axonhub)
+    - Apache-2.0, Go
+  - [QuantumNous/new-api](https://github.com/QuantumNous/new-api)
+    - AGPLv3, Go
   - [maximhq/bifrost](https://github.com/maximhq/bifrost)
     - Apache-2.0, Go, Typescript
   - [Portkey-AI/gateway](https://github.com/Portkey-AI/gateway)

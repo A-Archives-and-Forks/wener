@@ -106,3 +106,18 @@ loginctl
 - 其他解决方案
   - Headless Ghost HDMI 转接头
   - 虚拟显示驱动
+
+## Conf
+
+- ~/Library/Preferences/com.carriez.RustDesk/RustDesk.toml
+- %AppData%\RustDesk\config\RustDesk.toml
+- ~/.config/rustdesk/RustDesk.toml
+
+
+```bash
+# macOS key
+ioreg -rd1 -c IOPlatformExpertDevice | grep IOPlatformUUID
+```
+
+
+- crypto_secretbox_open_easy

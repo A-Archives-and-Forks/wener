@@ -1,20 +1,68 @@
-
-*.pxm
-*.pem
-.DS_Store
-
-# eclipse project file
-.project
-.buildpath
-.settings
-
-# jetbrain IDE
+### Base
 .idea
 
+### OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+._*
+.fseventsd
 
+### Temporary
+*.tgz
+*.zip
+*.tar
+*.log
+node_modules/
+.wrangler/cache/
+
+### Local files
+local.mk
+*.local.mk
+*.local.json
+*.local.md
+*.local.http
+*.local.yaml
+*.local.sql
+*.local.test.ts
+local.test.ts
+*.local.sh
+*.local.py
+*.local.csv
+local.just
+*.local.just
+*.local.txt
+local/
+
+### Secrets
+*.private.env.json
+*.password.txt
+htpasswd
+kubeconfig.yaml
+*.kubeconfig.yaml
+*.priv
+*.crt
+*.key
+.env
+.env.*
+*.env
+
+### AI
+.agents/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.opencode/
+.mcp.json
+CLAUDE.md
+AGENTS.md
+
+### Workspace
+*.pxm
 *ignored*
 atlassian-ide-plugin.xml
-node_modules
 .history
 /etc
 /var
@@ -30,30 +78,16 @@ local/
 .local
 *.local.md
 local.mk
-*.local.json
-*.local.txt
-*.local.http
 *.local.ldif
+*.local.cfg
+*.local.conf
 *.local.tf
 *.local.js
-*.local.conf
-*.local.ts
-*.local.sql
-*.local.sh
-*.local.cfg
 
-/.cursor
-.cursorrules
 *.auth.json
 *.key
 *.cert
 *.pem
-.mcp.json
-.claude/
-.agents/
-.agent/
-.gemini/
-AGENTS.md
 /*.jpg
 mcps.json
 *.graphql
@@ -63,3 +97,7 @@ mcps.json
 
 /notes/embedded/NES
 /tbd
+site/dist/
+site/lib/
+
+

@@ -44,7 +44,7 @@ title: Tokenizer
   - https://github.com/dqbd/tiktoken/blob/main/tiktoken/registry.json
   - Online https://tiktokenizer.vercel.app/
     - [dqbd/tiktokenizer](https://github.com/dqbd/tiktokenizer)
-       - Online playground
+      - Online playground
   - https://tiktokenizer.vercel.app/hf/Qwen/Qwen2.5-72B/tokenizer.json
     - https://huggingface.co/Qwen/Qwen2.5-72B/blob/main/tokenizer.json
 - [zurawiki/tiktoken-rs](https://github.com/zurawiki/tiktoken-rs)
@@ -120,6 +120,32 @@ title: Tokenizer
 ```bash
 pip install sentencepiece
 ```
+
+## Multi Model
+
+- Gemini
+  - 1 token ≈ 4 字符
+  - 100 tokens ≈ 60-80 单词
+  - **多模态 (Multimodal)**:
+    - **音频 (Audio)**: 固定速率 **32 tokens/s**
+    - **视频 (Video)**: 固定速率 **263 tokens/s**
+    - **图像 (Image)**:
+      - 边长均 ≤ 384px: 消耗 **258 tokens**
+      - 超过 384px: 图像会被切分为 **768x768** 的网格分片 (Tiles)，每个分片消耗 **258 tokens**
+- Qwen2.5-VL
+  - **动态分辨率**: 不强制缩放到固定正方形，保留原始比例
+  - **计算公式**: $\text{Tokens} = \lceil H/28 \rceil \times \lceil W/28 \rceil + 2$
+    - 底层 Patch 为 14x14，经过 2x2 合并（Pooling）后，每个 Token 对应 **28x28像素** 的区域
+    - 额外 +2 是因为包含 `<|vision_start|>` 和 `<|vision_end|>`
+- Qwen 3.5
+  - **原生多模态 (Native Multimodal)**: 采用早期融合（Early Fusion）架构，文本与视觉 Token 在同一空间处理。
+  - **Token 消耗**:
+    - 依然遵循 **动态分辨率** 逻辑，通常按 **28x28 像素/Token** 比例转换（继承 2.5-VL 的高效表征）。
+    - 视频处理通过时间轴切片，每秒视频转换的 Token 数与帧率及分辨率挂钩。
+
+---
+
+- https://ai.google.dev/gemini-api/docs/tokens
 
 # FAQ
 

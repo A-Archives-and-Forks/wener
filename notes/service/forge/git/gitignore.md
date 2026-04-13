@@ -30,17 +30,64 @@ debug[!01].log
 
 **local**
 
-```
-local/
-*.private.env.json
+```gitignore
+### Base
+.idea
+
+### OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+._*
+.fseventsd
+
+### Temporary
+*.tgz
+*.zip
+*.tar
+*.log
+node_modules/
+.wrangler/cache/
+
+### Local files
+local.mk
+*.local.mk
 *.local.json
 *.local.md
 *.local.http
 *.local.yaml
 *.local.sql
+*.local.test.ts
 local.test.ts
 *.local.sh
+*.local.py
+*.local.csv
+local.just
+*.local.just
+*.local.txt
+local/
+
+### Secrets
+*.private.env.json
+*.password.txt
+htpasswd
+kubeconfig.yaml
+*.kubeconfig.yaml
+*.priv
+*.crt
+*.key
 .env
-.env*.local
-TODO*.md
+.env.*
+*.env
+
+### AI
+.agents/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.opencode/
+CLAUDE.md
+AGENTS.md
 ```

@@ -11,6 +11,11 @@ tags:
   - Qwen2.5-VL
     - https://github.com/QwenLM/Qwen2.5-VL/blob/d2240f11656bfe404b9ba56db4e51cd09f522ff1/qwen-vl-utils/src/qwen_vl_utils/vision_process.py#L26-L36
 
+| 纸张 | 72 DPI (Web)  | 90 DPI         | 150 DPI (平衡) | 300 DPI (高清) |
+| :--- | :------------ | :------------- | :------------- | :------------- |
+| A4   | 595 x 842 px  | 744 x 1052 px  | 1240 x 1754 px | 2480 x 3508 px |
+| A3   | 842 x 1191 px | 1052 x 1488 px | 1754 x 2480 px | 3508 x 4961 px |
+
 ```bash
 # 缩小 50
 convert a.jpg -resize 50% a.50.jpg
@@ -39,6 +44,13 @@ magick identify -verbose 1.png 1.o.png
 exiftool 1.png 1.o.png
 echo 1.png 1.o.png | xargs -n 1 ffprobe -hide_banner
 ```
+
+## DPI
+
+- 72 / 90 DPI：适合网页展示、移动端预览，或作为 LLM 视觉模型 (如 GPT-4o-mini, Qwen2.5-VL) 的预缩放目标，平衡 Token 消耗与识别效果。
+- 150 DPI：复杂版面文字识别的底线，兼顾速度与准确度。
+- 300 DPI：OCR 行业标准。大多数 OCR 引擎（Tesseract, PaddleOCR）在此分辨率下表现最稳定。
+- 600 DPI：仅用于极小字体（如票据微缩文字）或高精度手写体分析，普通文档处理没必要，会显著拖慢处理速度。
 
 ## OCR 预处理 {#preprocess}
 

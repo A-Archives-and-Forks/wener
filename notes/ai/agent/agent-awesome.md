@@ -25,6 +25,10 @@ tags:
     - Gemini CLI fork
   - [openai/codex](https://github.com/openai/codex)
     - Apache-2.0, Rust
+- Gateway/Proxy
+  - [codex-lb](./codex-lb.md)
+    - MIT, Python, FastAPI
+    - ChatGPT account load balancer & proxy
 - GUI Agent
   - Curosr
   - Antigravity

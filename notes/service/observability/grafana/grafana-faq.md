@@ -26,3 +26,33 @@ tags:
 ## Public
 
 - 公开访问
+- 开启后可以绑定 org+role
+
+## TypeTimeSeriesLong TypeTable
+
+- TypeTimeSeriesLong
+  - 数据不是按列展开，而是按行堆叠
+  - Time, Value, Labels/Tags
+
+| Time  | Metric Name | Value | Host     |
+| :---- | :---------- | :---- | :------- |
+| 10:00 | cpu_usage   | 20    | server-A |
+| 10:00 | cpu_usage   | 25    | server-B |
+| 10:01 | cpu_usage   | 22    | server-A |
+
+- TypeTable
+  - 每一行是一个独立的记录，每一列是一个字段
+
+| ID  | Name  | Status  | LastLogin  |
+| :-- | :---- | :------ | :--------- |
+| 1   | Admin | Online  | 2024-04-09 |
+| 2   | Guest | Offline | 2024-04-01 |
+
+- TypeTimeSeriesWide
+
+| time             | bitable-A/429 | bitable-B/429 |
+| ---------------- | ------------- | ------------- |
+| 2026-04-09 10:00 | 35.2          | 12.1          |
+| 2026-04-09 10:01 | 38.5          | 8.3           |
+
+每个 series 是一列，列名/labels 就是维度标识。适合多 series 对比。

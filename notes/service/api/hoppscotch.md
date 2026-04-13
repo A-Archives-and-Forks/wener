@@ -34,3 +34,7 @@ title: hoppscotch
 ```bash
 docker run --rm -p 3000:3000 --name hoppscotch hoppscotch/hoppscotch:latest
 ```
+
+- Tauri 桌面应用
+- 存储在 IndexedDB
+- ~/Library/WebKit/io.hoppscotch.desktop

@@ -11,6 +11,12 @@ tags:
 
 | Date       | Model Series          | Size                                                        | Context Window | Creator         | notes                                                                              |
 | :--------- | :-------------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
+| 2026-04-07 | GLM 5.1               | 754B (MoE)                                                  | 200k           | Zhipu AI        | Massive scaling with MoE architecture                                              |
+| 2026-04-02 | Gemma 4               | E2B, E4B, 26B (MoE), 31B                                    | 128k-256k      | Google          | Native modality, better reasoning, MoE variants                                    |
+| 2026-03-12 | MiniMax 2.7           | 230B (10B active MoE)                                       | 200k           | MiniMax         | Improved version of M2.5, Sparse MoE with 256 experts                              |
+| 2026-02-16 | Qwen 3.5              | 0.8B - 397B (17B active MoE)                                | 256k-1M        | Alibaba         | Family of models, industry-leading MoE performance                                 |
+| 2026-02-12 | MiniMax 2.5           | 230B (10B active MoE)                                       | 200k           | MiniMax         | Linear-attention based, extremely fast inference                                   |
+| 2026-02-11 | GLM 5                 | 744B (40B active MoE)                                       | 200k           | Zhipu AI        | Initial version of GLM-5 series, sparse MoE                                        |
 | 2025-12-30 | HY-MT1.5              | 1.8B, 7B                                                    |                | Tencent         | Translation, 33 languages, WMT25 champion upgrade, Edge deployment                 |
 | 2025-12-23 | GLM 4.7               | 358B                                                        |                | Zhipu           | MoE, Text generation, Multilingual (EN, ZH), Coding                                |
 | 2025-12-21 | Deepseek V3.2         | 685B                                                        |
@@ -145,21 +151,21 @@ tags:
 
 **Video Models**
 
-| date       | model                   | size         | author         | notes                                   |
-| ---------- | ----------------------- | ------------ | ------------- | --------------------------------------- |
-| 2026-01-03 | [LTX-2]                 | 19B          | Lightricks    | T2V, I2V, V2V, High quality, MIT        |
-| 2025-11-18 | [HunyuanVideo-1.5]      |              | Tencent       | T2V, I2V, High quality, Apache-2.0      |
-| 2025-10-24 | [LongCat-Video]         |              | Meituan       | T2V, I2V, Video continuation, MIT       |
-| 2025-07-24 | [Wan2.2-T2V-A14B]       | 14B          | Wan-AI        | T2V, Apache-2.0, High resolution        |
-| 2025-07-18 | [Wan2.2-TI2V-5B]        | 5B           | Wan-AI        | I2V, Apache-2.0, Fast generation        |
-| 2025-02-25 | [Wan2.1-T2V-14B]        | 14B          | Wan-AI        | T2V, Apache-2.0, Original version       |
-| 2025-02-25 | [Wan2.1-T2V-1.3B]       | 1.3B         | Wan-AI        | T2V, Apache-2.0, Lightweight            |
-| 2025-03-04 | [Open-Sora-v2]          |              | hpcai-tech    | T2V, Apache-2.0, Open-source            |
-| 2024-12-01 | [HunyuanVideo]          |              | Tencent       | T2V, Original version                   |
-| 2024-09-13 | [Open-Sora-Plan-v1.3.0] |              | LanguageBind  | T2V, MIT, Open-source                    |
-| 2024-08-17 | [CogVideoX-5b]          | 5B           | ZhipuAI       | T2V, Apache-2.0, High quality           |
-| 2024-08-05 | [CogVideoX-2b]          | 2B           | ZhipuAI       | T2V, Apache-2.0, Efficient              |
-| 2024-03-19 | [AnimateDiff-Lightning] | 1.8B adapter | ByteDance     | Fast T2V, CreativeML OpenRAIL-M          |
+| date       | model                   | size         | author       | notes                              |
+| ---------- | ----------------------- | ------------ | ------------ | ---------------------------------- |
+| 2026-01-03 | [LTX-2]                 | 19B          | Lightricks   | T2V, I2V, V2V, High quality, MIT   |
+| 2025-11-18 | [HunyuanVideo-1.5]      |              | Tencent      | T2V, I2V, High quality, Apache-2.0 |
+| 2025-10-24 | [LongCat-Video]         |              | Meituan      | T2V, I2V, Video continuation, MIT  |
+| 2025-07-24 | [Wan2.2-T2V-A14B]       | 14B          | Wan-AI       | T2V, Apache-2.0, High resolution   |
+| 2025-07-18 | [Wan2.2-TI2V-5B]        | 5B           | Wan-AI       | I2V, Apache-2.0, Fast generation   |
+| 2025-02-25 | [Wan2.1-T2V-14B]        | 14B          | Wan-AI       | T2V, Apache-2.0, Original version  |
+| 2025-02-25 | [Wan2.1-T2V-1.3B]       | 1.3B         | Wan-AI       | T2V, Apache-2.0, Lightweight       |
+| 2025-03-04 | [Open-Sora-v2]          |              | hpcai-tech   | T2V, Apache-2.0, Open-source       |
+| 2024-12-01 | [HunyuanVideo]          |              | Tencent      | T2V, Original version              |
+| 2024-09-13 | [Open-Sora-Plan-v1.3.0] |              | LanguageBind | T2V, MIT, Open-source              |
+| 2024-08-17 | [CogVideoX-5b]          | 5B           | ZhipuAI      | T2V, Apache-2.0, High quality      |
+| 2024-08-05 | [CogVideoX-2b]          | 2B           | ZhipuAI      | T2V, Apache-2.0, Efficient         |
+| 2024-03-19 | [AnimateDiff-Lightning] | 1.8B adapter | ByteDance    | Fast T2V, CreativeML OpenRAIL-M    |
 
 [LTX-2]: https://huggingface.co/Lightricks/LTX-2
 [HunyuanVideo-1.5]: https://huggingface.co/tencent/HunyuanVideo-1.5
@@ -175,10 +181,32 @@ tags:
 [CogVideoX-2b]: https://huggingface.co/zai-org/CogVideoX-2b
 [AnimateDiff-Lightning]: https://huggingface.co/ByteDance/AnimateDiff-Lightning
 
+**OCR**
+
+| release | model               | params |
+| ------- | ------------------- | ------ |
+| 2026-02 | [GLM-OCR]           | 0.9B   |
+| 2026-01 | [DeepSeek-OCR-2-3B] | 3B     |
+| 2026-01 | [PaddleOCR-VL-1.5]  | 0.9B   |
+| 2026-01 | [LightOnOCR-2-1B]   | 1B     |
+| 2025-10 | [olmOCR]            | 7B     |
+| 2025-07 | [dots.ocr]          | 1.7B   |
+| 2024-09 | [GOT-OCR2.0]        | 580M   |
+
+[GLM-OCR]: https://huggingface.co/THUDM/glm-ocr
+[DeepSeek-OCR-2-3B]: https://huggingface.co/deepseek-ai/deepseek-ocr-2-3b
+[PaddleOCR-VL-1.5]: https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.5
+[LightOnOCR-2-1B]: https://huggingface.co/lightonai/LightOnOCR-2-1B
+[olmOCR]: https://github.com/allenai/olmocr
+[dots.ocr]: https://github.com/Xiaohongshu/Dots-OCR
+[GOT-OCR2.0]: https://huggingface.co/stepfun-ai/GOT-OCR2_0
+
 **Proprietary Models**
 
 | release    | model                        |                 output |              input price | author            | notes                            |
 | :--------- | :--------------------------- | ---------------------: | -----------------------: | :---------------- | :------------------------------- |
+| 2026-03-12 | MiniMax M2.7                 |               $1.20/1M |                 $0.30/1M | MiniMax           | 205K, Sparse MoE API             |
+| 2026-02-11 | GLM 5                        |               $2.30/1M |                 $1.00/1M | Zhipu AI          | 200K, Flagship API               |
 | 2025-07-31 | Horizon Alpha                |                        |                          | OpenAI            | 256K                             |
 | 2025-06    | Kling 2.1                    |                $0.28/s |
 | 2025-06-17 | Gemini 2.5 Pro               |              $10.00/1M |                 $1.25/1M | Google            | 1M                               |
