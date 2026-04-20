@@ -5,6 +5,12 @@ tags:
 
 # MikroORM Version
 
+## MikroORM v7
+
+- decorator
+  - `@mikro-orm/decorators/legacy` - experimentalDecorators: true, reflect-metadata
+  - `@mikro-orm/decorators/es` - Stage 3 decorators
+
 ## MikroORM v6
 
 - 类型

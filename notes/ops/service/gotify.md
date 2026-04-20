@@ -8,6 +8,9 @@ tags:
 
 # Gotify
 
+- [gotify/server](https://github.com/gotify/server)
+  - MIT, Go
+  - 支持 Android
 - [Configuration](https://gotify.net/docs/config)
 
 ```bash

@@ -6,6 +6,24 @@ tags:
 
 # Chrome FAQ
 
+## Gemini in Chrome
+
+- 英文语言
+- chrome://flags/#skills
+  - Enable
+- 重启
+- 会出现 Ask Gemini
+- chrome://skills/browse
+
+---
+
+旧的方式
+
+```bash
+# enanle gemini
+open -n -a "Google Chrome" --args --variations-override-country=us
+```
+
 ## 离线安装下载
 
 - https://www.google.com/intl/en/chrome/?standalone=1

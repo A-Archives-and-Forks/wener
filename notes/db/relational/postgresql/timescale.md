@@ -110,3 +110,14 @@ select * from timescaledb_information.chunks;
 
 - [Architecture & Concepts](https://docs.timescale.com/introduction/architecture)
 - https://docs.timescale.com/use-timescale/latest/hypertables/
+
+## Direct Columnstore Insert
+
+- 2.23.0+
+- https://www.tigerdata.com/docs/build/data-management/write-data/insert#improve-performance-with-direct-compress
+
+
+```sql
+SET timescaledb.enable_direct_compress_insert = true;
+SET timescaledb.enable_direct_compress_copy = true;
+```

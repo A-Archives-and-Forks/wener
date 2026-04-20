@@ -5,6 +5,7 @@ tags:
 
 # MikroORM FAQ
 
+
 ## LockMode
 
 ```
@@ -34,3 +35,5 @@ PESSIMISTIC_PARTIAL_READ
 - toJSON
   - `toJSON(...args: any[]): EntityDictionary<Entity>`
     - `(entity as Dictionary).toJSON(...args)`
+- toReference
+  - `toReference(): Ref<Entity> & LoadedReference<Loaded<Entity, AddEager<Entity>>>`

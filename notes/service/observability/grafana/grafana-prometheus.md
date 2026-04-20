@@ -35,6 +35,7 @@ title: Grafana Prometheus
 | `$__range_ms`      |       |                                                           | v5.3+ |
 | `$__rate_interval` |       | `max($__interval + Scrape interval, 4 * Scrape interval)` | v7.2+ |
 
+- 这些是 宏 直接在前端替换的
 - 如果在模板变量中使用，注意将 refresh 设置为 On Time Range Change
 - `$interva` 等同于 `$__interval`， 但应该用 `$__interval`
 - 参考
@@ -45,14 +46,17 @@ title: Grafana Prometheus
     - `$__org` - ID, `${__org.name}` - 名字
     - `$__user` - id,login,email
     - `$timeFilter`, `$__timeFilter` - 例如 `time > now() - 7d`
+- resolution -> maxDataPoints: this.maxDataPoints || Math.floor(width)
+- resolution ~= maxDataPoints ~= panel width in px
 
 ```promql
 # 变量替换
 # $<varname>
-rate(http_requests_total{job=~”$job”}[5m])
+rate(http_requests_total{job=~"$job"}[5m])
 # [[varname]]
-rate(http_requests_total{job=~”[[job]]"}[5m])
+rate(http_requests_total{job=~"[[job]]"}[5m])
 ```
+
 
 ## 参考
 
