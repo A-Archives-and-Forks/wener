@@ -25,4 +25,13 @@ ghostty +ssh-cache --remove=user@host
 
 infocmp xterm-ghostty
 echo $TERM
+
+# Command+Shift+, 可以 reload 配置
+# 修改配置
+EDITOR=zed ghostty +edit-config
+ghostty +show-config
+
+ghostty +list-fonts
+ghostty +show-face --string="A"
+ghostty +show-face --string="你好"
 ```

@@ -38,7 +38,6 @@ sw_vers
 - https://github.com/jaywcjlove/awesome-mac
 - https://www.torrentmac.net/
 
-
 ## System
 
 - [Hammerspoon/hammerspoon](https://github.com/Hammerspoon/hammerspoon)
@@ -80,4 +79,24 @@ sw_vers
 ```bash
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 defaults write -g WebKitDeveloperExtras -bool YES
+```
+
+## Notification
+
+```bash
+# Apple 自带
+osascript -e 'display notification "通知内容" with title "标题" subtitle "副标题" sound name "Crystal"'
+
+# 如果安装了快捷指令 app -> 快捷指令名
+shortcuts run "Notify" <<< "这是通知内容"
+
+# 如果安装了 raycast
+raycast notify "通知标题" -m "通知详细内容"
+
+# brew install terminal-notifier
+terminal-notifier -title "标题" -message "内容" -open "http://google.com" -bundleID "com.apple.Terminal"
+
+alerter -title "标题" -message "内容" -actions "接受","拒绝"
+
+notificator --title "标题" --text "内容"
 ```

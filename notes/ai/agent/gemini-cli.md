@@ -462,3 +462,22 @@ gemini /conductor:newTrack
 
 - 现在支持 [AGENTS.md](./agents.md)
 - 使用 `@file.md` 可注入指定文件内容到 prompt
+
+# FAQ
+
+## Debug
+
+```bash
+gemini -v
+DEBUG=gemini:* gemini
+```
+
+## Policy
+
+```
+/policies list
+```
+
+Tool execution denied by policy
+
+- Conseca

@@ -25,6 +25,14 @@ tags:
   - https://cloud.tencent.com/document/product/614
   - [语法规则](https://cloud.tencent.com/document/product/614/47044)
 
+:::tip
+
+单条长度上限： 512 KB。
+检索分析限制： 语句最长 12,000 字符。
+存量限制： 单个日志主题（Topic）支持 15 并发写入，建议在数据源头做好日志切割或精简。
+
+:::
+
 | attr               | for       |
 | ------------------ | --------- |
 | `__FILENAME__`     | 文件名    |

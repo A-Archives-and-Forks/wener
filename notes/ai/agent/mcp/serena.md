@@ -24,8 +24,9 @@ title: serena
     - 提供 IDE 级别的代码理解和编辑能力
     - 节省 token 使用并提高代码质量
 
-
 ```bash
+uv tool install -p 3.13 serena-agent@latest --prerelease=allow
+
 uvx --from git+https://github.com/oraios/serena serena start-mcp-server
 
 uvx --from git+https://github.com/oraios/serena serena project generate-yml
@@ -39,8 +40,25 @@ docker run --rm -it --network host \
 
 - .serena/serena_config.yml
 
-
 ```yaml
 # csharp, python, rust, java, typescript, go, cpp, or ruby
 language:
+```
+
+```bash
+serena init
+serena project create . --name wode --language typescript
+serena project health-check .
+serena project index .
+
+#
+claude mcp add serena -- serena start-mcp-server --context claude-code --project "$(pwd)"
+
+serena print-system-prompt
+serena prompts list
+
+# 工作行为模板
+serena mode list # editing, interactive, no-memories, no-onboarding, onboarding, one-shot, planning, query-projects
+
+serena tools list
 ```

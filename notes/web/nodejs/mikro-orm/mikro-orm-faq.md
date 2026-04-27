@@ -28,11 +28,12 @@ PESSIMISTIC_PARTIAL_READ
   - 正常使用，会遵循 hidden
   - `toObject<Ignored extends EntityKey<Entity> = never>(ignoreFields?: Ignored[]): Omit<EntityDTO<Entity>, Ignored>`
     - `EntityTransformer.toObject(this.entity, ignoreFields)`
-- toPOJO
+- toPOJO - 内部机制
   - 主要用于缓存
   - `toPOJO(): EntityDTO<Entity>`
     - `EntityTransformer.toObject(this.entity, [], true) as EntityDTO<Entity>`
-- toJSON
+- toJSON - 业务逻辑、展示
+  - hidden, 遵循 serializedName, serializer
   - `toJSON(...args: any[]): EntityDictionary<Entity>`
     - `(entity as Dictionary).toJSON(...args)`
 - toReference

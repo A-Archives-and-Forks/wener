@@ -361,11 +361,16 @@ curl --request POST \
   - 特性
     - 2000 dim
     - 使用 PG 管理索引存储
+    - vector 2000
+    - halfvec 4000
+    - bit 64000
+    - sparsevec 1000
   - HNSW_MAX_DIM = IVFFLAT_MAX_DIM = 2000
     - [pgvector#461](https://github.com/pgvector/pgvector/issues/461) Increase max vectors dimension limit for index
       - PG 默认 8KB Page, 不可调整, 限制了 1page 能存放的 float32
   - Supabase PostgreSQL Image 包含了 pgvector
-- [tensorchord/pgvecto.rs](https://github.com/tensorchord/pgvecto.rs)
+- [timescale/pgvectorscale](https://github.com/timescale/pgvectorscale)
+- ~~[tensorchord/pgvecto.rs](https://github.com/tensorchord/pgvecto.rs)~~
   - Apache-2.0, Rust
   - since 2023-05
   - PG extension: vectors
@@ -402,7 +407,7 @@ curl --request POST \
   - C++ vectorized database acceleration library
 - [erikbern/ann-benchmarks](https://github.com/erikbern/ann-benchmarks)
   - Benchmarks of approximate nearest neighbor
-- [eto-ai/lance](https://github.com/eto-ai/lance)
+- [lance-format/lance](https://github.com/lance-format/lance)
   - Apache-2.0, Rust
   - columnar format
 - [lancedb/lancedb](https://github.com/lancedb/lancedb)

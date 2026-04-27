@@ -5,6 +5,35 @@ tags:
 
 # AI FAQ
 
+## Telementray
+
+**claude**
+
+```bash
+CLAUDE_CODE_ENABLE_TELEMETRY=1
+
+# 可选
+# otlp, prometheus, console, none
+OTEL_METRICS_EXPORTER=oltp
+# otlp, console, none
+OTEL_LOGS_EXPORTER=otlp
+
+# 端口
+# grpc, http/json, http/protobuf
+OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+
+# 认证
+OTEL_EXPORTER_OTLP_HEADERS="Authorization=Bearer your-token"
+
+# 测试, 减少上报间隔
+OTEL_METRIC_EXPORT_INTERVAL=10000 # 10 seconds (default: 60000ms)
+OTEL_LOGS_EXPORT_INTERVAL=5000    # 5 seconds (default: 5000ms)
+```
+
+- https://geminicli.com/docs/cli/telemetry/
+- https://code.claude.com/docs/en/monitoring-usage
+
 ## 降低成本
 
 - 模型交付

@@ -1569,3 +1569,27 @@ If you only want the main face being refined set 'Mask only the top k largest' t
 
 - https://huggingface.co/datasets
 - [mlabonne/llm-datasets](https://github.com/mlabonne/llm-datasets)
+
+## Embeding
+
+| model                  | size/B    | dim              | len   | notes                   |
+| ---------------------- | --------- | ---------------- | ----- | ----------------------- |
+| text-embedding-3-small | -         | 1536             | 8191  | OpenAI, MRL             |
+| text-embedding-3-large | -         | 3072             | 8191  | OpenAI, MRL             |
+| bge-m3                 | 0.57      | 1024             | 8192  | Multi-function          |
+| qwen3-embedding        | 0.6, 4, 8 | 1024, 2560, 4096 | 32768 | MRL, Instruction        |
+| qwen3-reranker         | 0.6, 4, 8 | -                | 32768 | Cross-encoder           |
+| qwen3-vl-embedding     | 2, 8      | 2048, 4096       | 32768 | MRL, Instruction, Image |
+| qwen3-vl-reranker      | 2, 8      | -                | 32768 | Multimodal              |
+
+- https://github.com/QwenLM/Qwen3-VL-Embedding
+  - llamacpp 目前不支持 https://github.com/ggml-org/llama.cpp/discussions/19516
+- https://github.com/QwenLM/Qwen3-Embedding
+  - 1024-4096, 32K, MRL, Instruction
+- pgvector
+  - vector - up to 2,000 dimensions
+  - halfvec - up to 4,000 dimensions
+  - bit - up to 64,000 dimensions
+  - sparsevec - up to 1,000 non-zero elements
+- https://github.com/huggingface/text-embeddings-inference
+- https://huggingface.co/spaces/mteb/leaderboard

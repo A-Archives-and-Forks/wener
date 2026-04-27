@@ -54,7 +54,7 @@ zellij action override-layout session.kdl --retain-existing-terminal-panes # 恢
 
 # 会话管理
 zellij -s SESSION # 会话名字
-zellij -s SESSION -n NAME # 会用 ~/.config/zellij/layout/NAME.kdl
+zellij -s SESSION -n NAME # 会用 ~/.config/zellij/layouts/NAME.kdl
 zellij attach -c SESSION # 没有则会创建
 zellij --session SESSION --layout session.kdl
 

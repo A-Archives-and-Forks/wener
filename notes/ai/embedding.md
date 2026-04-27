@@ -42,3 +42,4 @@ title: Embedding
 - GTE - Generalized Text Embedding - 通用文本嵌入
 - 参考
   - [GTE models](https://huggingface.co/collections/Alibaba-NLP/gte-models-6680f0b13f885cb431e6d469)
+

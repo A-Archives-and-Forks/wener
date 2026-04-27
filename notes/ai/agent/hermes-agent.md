@@ -22,8 +22,12 @@ tags: [Agent, CLI, Python]
 
 ```bash
 # 安装
+# ~/.hermes/hermes-agent/
 curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash -s -- --skip-setup
 hermes setup # 配置 API key
+
+# 本质是 git pull, 依赖更新, 工具重新构建
+hermes update
 
 # 常用
 hermes                 # 启动交互 CLI
@@ -34,8 +38,25 @@ hermes gateway install # 安装后台 gateway（Telegram/Discord/飞书等）
 
 ## 配置 {#configuration}
 
-- `~/.hermes/config.yaml` — 模型、工具、平台等配置
-- `~/.hermes/.env` — API keys（gitignored）
+```
+~/.hermes/
+├── config.yaml     # 核心配置
+├── .env            # API Key & Secrets & Tokens
+├── auth.json       # OAuth provider credentials
+├── SOUL.md         # Primary agent identity (slot #1 in system prompt)
+├── memories/       # Persistent memory (MEMORY.md, USER.md)
+├── skills/         # Agent-created skills (managed via skill_manage tool)
+├── cron/           # Scheduled jobs
+├── sessions/       # Gateway sessions
+└── logs/           # Logs (errors.log, gateway.log — secrets auto-redacted)
+```
+
+```bash
+hermes config
+hermes config check
+# .env
+# hermes config set K V
+```
 
 ```yaml
 model:
@@ -152,3 +173,27 @@ platforms:
 ---
 
 - https://github.com/plastic-labs/honcho
+
+### Honcho
+
+~/.hermes/honcho.json
+
+```json
+{
+  "hosts": {
+    "hermes": {
+      "peerName": "wener",
+      "aiPeer": "hermes",
+      "workspace": "wener",
+      "observationMode": "directional",
+      "writeFrequency": "async",
+      "recallMode": "hybrid",
+      "sessionStrategy": "per-directory",
+      "enabled": true,
+      "saveMessages": true
+    }
+  },
+  "apiKey": "hch-v3-...",
+  "baseUrl": "http://localhost:8056"
+}
+```
